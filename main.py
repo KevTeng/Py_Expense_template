@@ -1,6 +1,8 @@
-from PyInquirer import prompt
-from examples import custom_style_2
-from expense import expense_questions,new_expense
+from expense import new_expense, pretty_printer_of_status
+
+from user_manager import *
+
+
 
 def ask_option():
     main_option = {
@@ -12,6 +14,12 @@ def ask_option():
     option = prompt(main_option)
     if (option['main_options']) == "New Expense":
         new_expense()
+        ask_option()
+    if (option['main_options']) == "New User":
+        new_user()
+        ask_option()
+    if (option['main_options']) == "Show Status":
+        pretty_printer_of_status()
         ask_option()
 
 def main():
